@@ -228,10 +228,22 @@ Aller dans le `help.start()` puis taper "*quine*" pour découvrir un descriptif 
 
 
 14. Essayer de représenter la distribution théorique qui vous semble correspondre à cet histogramme. À vous d'en trouver le paramètre ! Sur quoi pouvez-vous vous appuyer pour le trouver ?
+```{r}
+lambda = 1/mean(quine$days)
 
+x <- seq(0,10, by = 0.01)
+
+hist(quine$days, prob = T)
+curve(dexp(x, rate = lambda), add = T )
+```
+ 
 
 15. Quel est le quantile 0.95 d'une telle loi théorique ? On considère qu'un élève doit être exclu si le nombre d'absences dépasse ce quantile. Combien d'élèves sont concernés dans notre jeu de donnés ?
 
+```{r}
+
+
+```
 
 16. Au vu de ce qui a été fait en 2e partie, on sait que $$\sqrt{n} ~ \frac{\overline{X_{n}} - \mu} {\sigma} \sim N(0,1) $$. Ici on ne connait ni $\mu$ ni $\sigma$. On pose alors $$T = \frac{\overline{X_{n}} - \mu} {S} \sqrt{n} \sim St(n-1)$$ avec $$S = \sqrt{\frac{1}{n-1} \sum_{i=1}^{n}(X_{i} - \overline{X_{n}})^2}$$ l'estimateur empirique de $\sigma$. Quels sont les quantiles 0.025 et 0.975 d'une telle loi de Student ?
 
@@ -263,6 +275,9 @@ Tester votre fonction en créant :
 - int : l'intervalle avec toutes les observations
 
 
+```{r}
+
+```
 
 
 19. Représenter l'ensemble des données de la variable `Days` avec la fonction `plot()`. Superposer les bandes de confiance de `int10` (couleur rouge), de `int50` (couleur bleu) et de `int` (couleur vert). Vous rajouterez également une droite en noir d'équation `y=mean(quine$Days)`. Indication : pour superposer les droites, vous pouvez utiliser la fonction `abline()`. Que constatez-vous ?
